@@ -9,7 +9,65 @@
 		.demo-header a { color: #ffffde; text-decoration: none }
 		.demo-header a.back-to-link { float: left }
 		.demo-header a img { float: right; padding: 10px 30px }
-		#social-plugin { position: fixed; bottom: 0; left:0; right:0; padding: 10px }
+		#social-plugin {
+			background: #181818;
+			color: #FFF;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 250px;
+			padding: 10px;
+			transition: bottom 1s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+
+		#social-plugin-toggle {
+			position: fixed;
+			appearance: none;
+			cursor: pointer;
+			left: -100%;
+			bottom: -100%;
+		}
+
+		#social-plugin-toggle + label {
+			position: absolute;
+			bottom: 250px;
+			right: 20px;
+			cursor: pointer;
+			padding: 10px;
+			background: #181818;
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			width: 18px;
+			color: #FFF;
+			font-size: 16px;
+			text-align: center;
+			-webkit-font-smoothing: antialiased;
+			cursor: pointer;
+			transition: all 500ms ease;
+			transition: bottom 1s cubic-bezier(0.17, 0.04, 0.03, 0.94);
+		}
+
+		#social-plugin-toggle + label:after {
+			content: "\f00d";
+			font-family:FontAwesome;
+		}
+
+		#social-plugin-toggle:checked ~ #social-plugin {
+			bottom: -250px;
+		}
+
+		#social-plugin-toggle:checked + label {
+			bottom: 0;
+		}
+
+		#social-plugin-toggle:checked + label:after {
+			content: "\f077";
+			font-family:FontAwesome;
+		}
 	</style>
 </head>
 <body>
@@ -18,6 +76,8 @@
   <a href="http://www.thelittletechie.com/"><img src="http://1.bp.blogspot.com/-fx0jvRLzzfw/VQzpAOKtjPI/AAAAAAAAHuw/XLqrkWZwxjY/s1600/tlt-header.png" /></a>
 </div>
 
+<input type="checkbox" name="toggle" id="toggle" />
+<label for="toggle"></label>
 <div id="social-plugin">
 	<!-- Google Analytics -->
 	<script>
